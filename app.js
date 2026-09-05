@@ -151,6 +151,15 @@ function bindContent() {
       p.className = "gift-note";
       p.textContent = note;
       extra.appendChild(p);
+
+      const button = document.createElement("button");
+      button.className = "btn btn--secondary gift-note__button";
+      button.type = "button";
+      button.textContent = "Do you want to see something";
+      button.addEventListener("click", () => {
+        window.location.href = "video/video.html";
+      });
+      extra.appendChild(button);
     }
     if (code) {
       const span = document.createElement("span");

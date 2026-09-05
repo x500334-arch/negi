@@ -1319,6 +1319,7 @@ h1, h2, h3, .countdown__number {
   background: rgba(255,207,111,.08);
 }
 .gift-note { color: var(--text); font-size: .95rem; margin: 0; }
+.gift-note__button { justify-self: center; margin-top: .2rem; }
 
 /* --------------------------------------------------------------------------
    16. FINAL
