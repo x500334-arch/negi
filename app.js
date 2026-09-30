@@ -17,11 +17,11 @@ const birthdayData = {
 
   // The birthday letter. Each item = one paragraph.
   letter: [
-    "Dear Birthday Girl,",
-    "Another year older, another year more iconic.",
-    "I hope this new chapter brings beautiful surprises, peaceful moments, loud laughter, and everything your heart secretly wishes for.",
-    "Never stop being wonderfully, uniquely you.",
-    "With lots of magic ✦"
+    "🎂 Happy Birthday, Vaishnavi Negi! 💖✨",
+    "Dear Negi,\n\nToday is not just another day—it’s the day our amazing friend Vaishnavi was born! 🥳🎉\n\nWe want to wish you the happiest birthday ever! 💕🎂",
+    "We honestly don't know how to put our friendship into words. From our silly jokes 😂 to our endless conversations, from laughing over absolutely nothing to making unforgettable memories together—we've shared so many moments that we'll always remember. 🫶🏻\n\nYou are not just a friend in our group; you are a part of our little family. ❤️",
+    "Thank you for being there, for making us laugh, for listening to our nonsense, and for being your wonderful self. Every person in our group has a special memory with you, and that's what makes our friendship so beautiful. ✨\n\nToday, we all want to wish you:\n🌸 Lots and lots of happiness\n🎯 Success in everything you do\n💫 All your dreams coming true\n😂 Endless reasons to laugh\n❤️ Beautiful memories with the people you love\n🎁 And, of course, LOTS OF CAKE! 🎂",
+    "So today, forget all the worries, eat as much cake as possible, take a million pictures 📸, laugh until your stomach hurts, and enjoy YOUR DAY! 🥳🎉\n\n💕 HAPPY BIRTHDAY, VAISHNAVI! 🎂👑"
   ],
 
   // "Things That Remind Me of You" cards — icon, title, hint, hidden message
@@ -39,10 +39,10 @@ const birthdayData = {
 
   // Gallery polaroids — image path + caption. Add or remove as many as you like.
   memories: [
-    { src: "assets/images/memory1.jpg", caption: "The day it all started" },
-    { src: "assets/images/memory2.jpg", caption: "That trip we still talk about" },
-    { src: "assets/images/memory3.jpg", caption: "Laughing at nothing" },
-    { src: "assets/images/memory4.jpg", caption: "Golden hour, golden you" }
+    { src: "n-1.jpg", caption: "" },
+    { src: "n-2.jpg", caption: "" },
+    { src: "n-3.jpg", caption: "My favourite picture" },
+    { src: "n-4.jpg", caption: "" }
   ],
 
   // Gift surprise panel
@@ -66,7 +66,7 @@ const birthdayData = {
   music: "birthday-song.mp3",
 
   // Hero photo
-  heroImage: "assets/images/hero.jpg"
+  heroImage: "negi-b-day.jpg"
 };
 /* ========================== END PERSONAL CONTENT ========================== */
 
@@ -151,15 +151,6 @@ function bindContent() {
       p.className = "gift-note";
       p.textContent = note;
       extra.appendChild(p);
-
-      const button = document.createElement("button");
-      button.className = "btn btn--secondary gift-note__button";
-      button.type = "button";
-      button.textContent = "Do you want to see something";
-      button.addEventListener("click", () => {
-        window.location.href = "video/video.html";
-      });
-      extra.appendChild(button);
     }
     if (code) {
       const span = document.createElement("span");
@@ -596,11 +587,14 @@ function initGallery() {
     wrap.append(img, ph);
     watchImage(img, wrap);
 
-    const cap = document.createElement("span");
-    cap.className = "polaroid__caption";
-    cap.textContent = m.caption;
-
-    card.append(tape, wrap, cap);
+    if (m.caption) {
+      const cap = document.createElement("span");
+      cap.className = "polaroid__caption";
+      cap.textContent = m.caption;
+      card.append(tape, wrap, cap);
+    } else {
+      card.append(tape, wrap);
+    }
     card.addEventListener("click", () => openLightbox(m, card));
     gallery.appendChild(card);
   });
